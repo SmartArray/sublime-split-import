@@ -13,16 +13,18 @@ class SplitImportCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         # Only perform the action on selected text
         for region in self.view.sel():
-            if not region.empty():
-                # Extract the selected text
-                selected_text = self.view.substr(region)
-              
-                # Split the tokens from the selected text and format it
-                formatted_text = self.split_imports(selected_text)
-              
-                # Replace the selected text with the formatted text
-                if formatted_text:
-                    self.view.replace(edit, region, formatted_text)
+            if region.empty():
+                region = self.view.line(region)            
+
+            # Extract the selected text
+            selected_text = self.view.substr(region)
+          
+            # Split the tokens from the selected text and format it
+            formatted_text = self.split_imports(selected_text)
+          
+            # Replace the selected text with the formatted text
+            if formatted_text:
+                self.view.replace(edit, region, formatted_text)
 
     def split_imports(self, text):
         # Regular expression to match the import statement
