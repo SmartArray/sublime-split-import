@@ -11,20 +11,20 @@ becomes
 
 ```javascript
 import {
-  Relation,
-  Entity,
   Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  OneToMany,
+  OneToOne,
   PrimaryColumn,
   PrimaryGeneratedColumn,
-  OneToOne,
-  OneToMany,
-  CreateDateColumn,
+  Relation,
   UpdateDateColumn,
-  JoinColumn,
 } from 'typeorm';
 ```
 
-Note that trailing comma after JoinColumn, too. Airbnb-style diff-friendly imports. Also supports sorting. Feel free to disable the features by modifying the options at the top of the file: `SORT_STATEMENTS` and `ADD_TRAILING_COMMA`
+Note that the list is now sorted and a trailing comma was added after JoinColumn, too. Airbnb-style diff-friendly imports. Also supports sorting. Feel free to disable the features by modifying the options at the top of the file: `SORT_STATEMENTS` and `ADD_TRAILING_COMMA`
 
 
 ### How to install?
