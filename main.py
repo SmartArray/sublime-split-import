@@ -6,6 +6,9 @@ import sublime
 import sublime_plugin
 import re
 
+SORT_STATEMENTS = True
+ADD_TRAILING_COMMA = True
+
 class SplitImportCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         # Only perform the action on selected text
@@ -34,8 +37,12 @@ class SplitImportCommand(sublime_plugin.TextCommand):
             # Clean up items and ensure they are unique
             cleaned_items = [item.strip() for item in items if item.strip()]
           
+            # Sort imports
+            if SORT_STATEMENTS:
+                cleaned_items.sort()
+
             # Ensure last item has a comma (airbnb style?)
-            if cleaned_items[-1][-1] != ',':
+            if ADD_TRAILING_COMMA and cleaned_items[-1][-1] != ',':
                 cleaned_items[-1] = cleaned_items[-1] + ','
 
             # Indention
