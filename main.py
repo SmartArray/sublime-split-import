@@ -41,7 +41,7 @@ class SplitImportCommand(sublime_plugin.TextCommand):
             # Indention
             indent = ''
             tab_size = 2 # ToDo: make sure to read this from the currently opened file
-            inner_indent = indent + '  ' * tab_size
+            inner_indent = indent + ' ' * tab_size
 
             # Create the new formatted import statement
             new_import = (f"import {{\n{inner_indent}" + 
