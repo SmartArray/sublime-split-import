@@ -24,7 +24,8 @@ import {
 } from 'typeorm';
 ```
 
-Note that trailing comma after JoinColumn, too. Airbnb-style diff-friendly imports.
+Note that trailing comma after JoinColumn, too. Airbnb-style diff-friendly imports. Also supports sorting. Feel free to disable the features by modifying the options at the top of the file: `SORT_STATEMENTS` and `ADD_TRAILING_COMMA`
+
 
 ### How to install?
 1. Create a new file `split_import.py` in the Packages/User directory.
